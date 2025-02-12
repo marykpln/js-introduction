@@ -1,23 +1,19 @@
-// let a=2;
-// a ="abc";
-// console.log(a);
-// const b = 3;
-//b = 5; const can't be updated
-//primitive tipes
-/*****
- * 1. number
- * 2.string
- * 3. boolean (true, false)
- * 4. undefined
- * 5.null
- */
+const str = "a123";
+console.log("9".charCodeAt(0) - "0".charCodeAt(0));
+let str2 = "123.989";
+str2 = str2.replace("999", "");
+console.log(str2);
+str2 = str2.replaceAll("9", "");
+console.log(str2.indexOf("989"));
+console.log(str2.indexOf("g"));
+console.log("*".repeat(8));
+console.log(str2.slice(4));
+let str3 = "balagan  ";
+console.log(str3.trim());
+console.log("hello pidor");
+for (let i = 0; i < str.length; i++) {
+  console.log(str[i]);
+}
 
-// 1.number
-let a = 100;
-a /= 3;
-console.log("non-normilized result of division", a);
-a = Math.trunc(a);
-console.log("normilized result of division", a);
-a = Math.round(30.6);
-a = Math.floor(a);
-a = Math.ceil(a);
+
+
