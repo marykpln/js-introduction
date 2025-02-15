@@ -18,18 +18,35 @@ function forEach(array, fun) {
   }
 }
 
-function print(el, index) {
-  console.log(`index: ${index},  element: ${elem}`);
+//forEach takes array and fun with two parameters: first - element of array, second - index
+function print(elem, index) {
+  console.log(`index: ${index}, element: ${elem}`);
 }
-
 forEach(array, print);
-
-// forEach takes array fun with 2 parent, el of array, second index
 function some(array, fun) {
   //TODO
-  //retun true if all el of the ar match a condition given in the function (fun)
+  //returns true if at least one element of the array match a condition given in the function (fun)
 }
-
 function evenNumber(num) {
   return num % 2 == 0;
 }
+console.log(
+  `using "some" function for even numbers array: ${array}, function ${evenNumber}, result: ${some(
+    array,
+    evenNumber
+  )} - false`
+);
+function every(array, fun) {
+  //TODO
+  //returns true if all elemnts of the array match a condition given in the function (fun)
+}
+array = [2, 3, 4];
+function elmGreaterIndex(elem, index) {
+  return elem > index;
+}
+console.log(
+  `using "every" function for elements greater than the index values, array: ${array}, function ${elmGreaterIndex}, result: ${every(
+    array,
+    evenNumber
+  )} - true`
+);
