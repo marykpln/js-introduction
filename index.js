@@ -1,29 +1,42 @@
 const array = ["HELLO", 122, -10, "Java", "JavaScript", 500, "Node.js"];
-//adding to array
-array.push(...[1, 2, 3]);
-//push adds to end of an sourse array
-//unshift adds at beginning of an sourse array
-//splice inserts at middle of array
-console.log([1, 2, 3].push([4, 5, 6]));
-console.log([1, 2, 3].push(4, 5, 6)); // return length 6
-const array1 = [1, 2, 3].concat([3, 4, 5]);
-// const array1 = [1, 2, 3].concat(3, 4, 5);
-console.log(array1[3]);
-//concat - that doesn't update soure array. it's only returns new array as a result of concatination
-console.log(array.unshiftshift(...[3, 4, 5]));
-console.log(array);
+//finding
+let index = array.indexOf("Java");
+console.log(index);
+const array1 = array.filter(function (el) {
+  let result = true;
+  if (typeof el == "string") {
+    result = !el.includes("Java");
+  }
+  return result;
+});
+console.log(array1);
 
-console.log(array.splice(3, 0, "kukareku"));
-console.log(array);
-/******************************************** */
-//removing last el
-console.log(array.pop());
-console.log(array);
-//removing first el
-console.log(array.shift());
-//removing several el or at middle
-console.log(array.splice(3, 3));
-console.log(array);
+//forEach
+array.forEach(function (el, index) {
+  console.log(`${i + 1} : ${el}`);
+});
 
-console.log(array.splice(3, 1, "Python"));
-console.log(array);
+//map
+const array2 = array.map(function (e) {
+  let res = typeof e == "number" ? Math.abs(e).toString().length : e.length;
+  return res;
+});
+
+console.log(array2);
+
+//join
+const str = array.join("<br>");
+
+//sort
+const array3 = [122, 10000, 2, 9, 1000000000];
+// console.log(array3.sort());
+// console.log(array3);
+// const array4 = [122, 10000, 2, 9, 1000000000];
+// console.log(array4.toSorted());
+// console.log(array4);
+
+console.log(
+  array1.toSorted(function (a, b) {
+    return a - b;    //b-a
+  })
+);
