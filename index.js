@@ -1,52 +1,29 @@
-/*
-1.Java array - block of memory
+const array = ["HELLO", 122, -10, "Java", "JavaScript", 500, "Node.js"];
+//adding to array
+array.push(...[1, 2, 3]);
+//push adds to end of an sourse array
+//unshift adds at beginning of an sourse array
+//splice inserts at middle of array
+console.log([1, 2, 3].push([4, 5, 6]));
+console.log([1, 2, 3].push(4, 5, 6)); // return length 6
+const array1 = [1, 2, 3].concat([3, 4, 5]);
+// const array1 = [1, 2, 3].concat(3, 4, 5);
+console.log(array1[3]);
+//concat - that doesn't update soure array. it's only returns new array as a result of concatination
+console.log(array.unshiftshift(...[3, 4, 5]));
+console.log(array);
 
+console.log(array.splice(3, 0, "kukareku"));
+console.log(array);
+/******************************************** */
+//removing last el
+console.log(array.pop());
+console.log(array);
+//removing first el
+console.log(array.shift());
+//removing several el or at middle
+console.log(array.splice(3, 3));
+console.log(array);
 
-
-2.Java Script array set of key-vallue pairs
-
-*/
-
-const array = ["abc", 22];
-// array[10000000000] = 10; //10000000000 - key; vallue = 10;
-console.log(array.length); //10000000001
-console.log(array[0]);
-
-function forEach(array, fun) {
-  for (let i = 0; i < array.length; i++) {
-    fun(array[i], i);
-  }
-}
-
-//forEach takes array and fun with two parameters: first - element of array, second - index
-function print(elem, index) {
-  console.log(`index: ${index}, element: ${elem}`);
-}
-forEach(array, print);
-function some(array, fun) {
-  //TODO
-  //returns true if at least one element of the array match a condition given in the function (fun)
-}
-function evenNumber(num) {
-  return num % 2 == 0;
-}
-console.log(
-  `using "some" function for even numbers array: ${array}, function ${evenNumber}, result: ${some(
-    array,
-    evenNumber
-  )} - false`
-);
-function every(array, fun) {
-  //TODO
-  //returns true if all elemnts of the array match a condition given in the function (fun)
-}
-array = [2, 3, 4];
-function elmGreaterIndex(elem, index) {
-  return elem > index;
-}
-console.log(
-  `using "every" function for elements greater than the index values, array: ${array}, function ${elmGreaterIndex}, result: ${every(
-    array,
-    evenNumber
-  )} - true`
-);
+console.log(array.splice(3, 1, "Python"));
+console.log(array);
