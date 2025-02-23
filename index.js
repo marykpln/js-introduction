@@ -1,28 +1,38 @@
-function sum(...operands) {
-  let sum = 0;
-  // if (Array.isArray(operands[0])) {
-  //   operands = [...operands];
-  // }
-  for (let i = 0; i < operands.length; i++) {
-    let operand = operands[i];
-    if (Array.isArray(operand)) {
-      operand = sumArray(operand);
+//arrow functions
+const sumFun = function (op1, op2) {
+  return op1 + op2;
+};
+
+const sumArrowFun = (op1, op2) => op1 + op2;
+//statement
+// let c,
+//   a = 10,
+//   b = 3;
+// if (a > b) {
+//   if (a > b) {
+//     c = a + b;
+//   } else {
+//     c = a * b;
+//   }
+// }
+// c = a > b ? a + b : a * b;
+const printC = function () {
+  let c,
+    a = 10,
+    b = 3;
+  if (a > b) {
+    if (a > b) {
+      c = a + b;
+    } else {
+      c = a * b;
     }
-    sum = sum + operand;
   }
-  return sum;
-}
+  console.log(c);
+};
+printC();
+let a = 10,
+  b = 3;
+const printCarrow = () => console.log(a > b ? a + b : a * b);
+printCarrow(3, 10);
 
-function sumArray(array) {
-  for (let i = 0; i < array.length; i++) {
-    let sum = 0;
-    sum += array[i];
-  }
-  return sum;
-}
-// // console.log(`sum(1,2,3)=${sum(1,2,3)}`);
-// console.log(`sum([1,2,3], 4, 6)=${sum([1,2,3], 5, 6)}`);
-
-console.log(`Math.max(1,2,3) = ${Math.max(1, 2, 3)}`);
-
-console.log(`Math.max(...[1,2,3]) = ${Math.max(...[1, 2, 3])}`);
+console.log([10, -7, 100, 20].toSorted((a, b) => b - a));
