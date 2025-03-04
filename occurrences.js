@@ -16,6 +16,7 @@ function fillObj(strings, resObj) {
     resObj[str]++;
   });
 }
+
 function getResArray(resObj) {
   const res = [];
   for (const key in resObj) {
