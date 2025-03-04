@@ -1,3 +1,5 @@
+import { occurrences } from "./occurrences.js";
+import { isAnagram } from "./anagram.js";
 function test(commonScript, testObj) {
   //testObj structure {script: <string containg script text>, expected: <any type>}
   //returns resultObj with structure {script: <string containg script text>,
@@ -24,7 +26,12 @@ function test(commonScript, testObj) {
 function createTestResult(script, expectedJSON, actualJSON, result) {
   return { script, expectedJSON, actualJSON, result };
 }
-export function testframework(testName, commonScript, scripts, expectedResults) {
+export function testframework(
+  testName,
+  commonScript,
+  scripts,
+  expectedResults
+) {
   //input
   //scripts - array of tested scripts
   //expectedResults - array of appropriate results
@@ -42,7 +49,7 @@ export function testframework(testName, commonScript, scripts, expectedResults) 
   const summaryLine = getSummaryLine(summary);
   const commonScriptLines = getCommonScript(commonScript);
   const header = getHeader(testName);
-  bodyElem.innerHTML = `${header}${commonScriptLines}${resultItemsList}${summaryLine}`;
+  bodyElem.innerHTML += `${header}${commonScriptLines}${resultItemsList}${summaryLine}`;
 }
 function getHeader(testName) {
   const res = `<header class="logo">${testName}</header>`;
