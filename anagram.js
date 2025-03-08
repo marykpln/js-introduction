@@ -13,12 +13,15 @@ export function isAnagram(string, anagram) {
 }
 function getLetterOccurrences(string) {
   // Array.from(string).reduce((acc, cur) => ({ ...acc, ...cur }));
-
   const res = Array.from(string).reduce(
-    (acc, cur) => (acc[cur] = (acc[cur] || 0) + 1, acc), {});
+    (acc, cur) => ({ ...acc, [cur]: (acc[cur] || 0) + 1 }),
+    {}
+  );
+
   return res;
-  // TODO update code with reduce callback function as one expression that is with no return statement
 }
+// TODO update code with reduce callback function as one expression that is with no return statement
+
 function isAnagramOccurrences(letterOccurrences, anagram) {
   const res = Array.from(anagram).every(
     (letter) => --letterOccurrences[letter] >= 0
