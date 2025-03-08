@@ -1,31 +1,27 @@
 export function isAnagram(string, anagram) {
-  let result = false;
-  let arrayStr = strToArray(string);
-  let arrayAnagram = strToArray(anagram);
-  const objStr = fillObj(arrayStr);
-  const objAnagram = fillObj(arrayAnagram);
-  result = compareObjects(objStr, objAnagram);
-
-  //TODO
   //takes two parameters: string  and anagram
   //returns true if parameter anagram contains the same letters as
   //the given string with the same counters of occurrences
   //otherwise false
+  let result = false;
+  if (string.length === anagram.length) {
+    const letterOccurrences = getLetterOccurrences(string);
+    result = isAnagramOccurrences(letterOccurrences, anagram);
+  }
+
   return result;
 }
+function getLetterOccurrences(string) {
+  // Array.from(string).reduce((acc, cur) => ({ ...acc, ...cur }));
 
-function strToArray(str) {
-  const res = str.split("").sort();
+  const res = Array.from(string).reduce(
+    (acc, cur) => (acc[cur] = (acc[cur] || 0) + 1, acc), {});
   return res;
+  // TODO update code with reduce callback function as one expression that is with no return statement
 }
-
-function compareObjects(obj1, obj2) {
-  return JSON.stringify(obj1) === JSON.stringify(obj2);
-}
-
-function fillObj(array) {
-  return array.reduce(
-    (resObj, str) => ((resObj[str] = (resObj[str] || 0) + 1), resObj),
-    {}
+function isAnagramOccurrences(letterOccurrences, anagram) {
+  const res = Array.from(anagram).every(
+    (letter) => --letterOccurrences[letter] >= 0
   );
+  return res;
 }
