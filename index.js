@@ -1,20 +1,14 @@
 import { testframework } from "./testframework.js";
-testframework(
-  "occurrences function test",
-  'const strings = ["b","a", "c", "b", "b", "c"]',
-  ["occurrences(strings)"],
-  [["a=>1", "b=>3", "c=>2"]]
-);
 
 testframework(
-  "isAnagram testing",
-  'const string = "hello"',
+  "computeSalary testing",
+  'const empl = new Employee("name1",12000, "DEP1");' +
+    'const wageEmpl = new WageEmployee("name2", 10000, "DEP1", 100, 50);' +
+    'const manager = new Manager("name3", 10000, "DEP2", 2)',
   [
-    'isAnagram(string, "olleh")',
-    'isAnagram(string, "lehol")',
-    'isAnagram(string, "ollle")',
-    'isAnagram(string, "hell")',
-    'isAnagram(string, "oelhl")',
+    "empl.computeSalary()",
+    "wageEmpl.computeSalary()",
+    "manager.computeSalary()",
   ],
-  [true, true, false, false, true]
+  [12000, 15000, 20000]
 );
