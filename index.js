@@ -1,14 +1,13 @@
 import { testframework } from "./testframework.js";
 
+Array.prototype.sum = function () {
+  const res = this.reduce((acc, cur) => acc + cur);
+  return res;
+};
+
 testframework(
-  "computeSalary testing",
-  'const empl = new Employee("name1",12000, "DEP1");' +
-    'const wageEmpl = new WageEmployee("name2", 10000, "DEP1", 100, 50);' +
-    'const manager = new Manager("name3", 10000, "DEP2", 2)',
-  [
-    "empl.computeSalary()",
-    "wageEmpl.computeSalary()",
-    "manager.computeSalary()",
-  ],
-  [12000, 15000, 20000]
+  "Testing new method for all arrays",
+  `const ar1 = [1, 2, 3]; const ar2 = [3, 4, "a"]`,
+  ["ar1.sum();", "ar2.sum();"],
+  [6, "7a"]
 );
