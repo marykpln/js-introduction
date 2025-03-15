@@ -1,34 +1,20 @@
-import { testframework } from "./testframework.js";
+// import { testframework } from "./testframework.js";
+import Deffered from "./Deffered.js";
 
-class X {
-  constructor(arr) {
-    this.arr = arr;
-  }
-  logElements() {
-    this.arr.forEach((el) => console.log(el));
-  }
-  sumElements() {
-    return this.arr.reduce((acc, cur) => acc + cur);
-  }
-  action(fun) {
-    return fun.call(this);
-  }
-  joinElements() {
-    return this.arr.join();
-  }
-  actionBind(fun) {
-    return fun();
-  }
-}
+const d = new Deffered();
+d.then(function (res) {
+  console.log("1 ", res);
+  return "a";
+});
+d.then(function (res) {
+  console.log("2 ", res);
+  return "b";
+});
+d.then(function (res) {
+  console.log("3 ", res);
+  return "c";
+});
+d.resolve("hello");
 
-const objX = new X([1, 2, 3]);
-// objX.logElements();
-// console.log(objX.sumElements());
-// console.log(objX.action(objX.logElements));
-// console.log(
-//   objX.action(function () {
-//     return this.arr.join();
-//   })
-// );
-// console.log(objX.action(objX.joinElements))
-console.log(objX.actionBind(objX.sumElements.bind(objX)));
+// let charCode = String.fromCharCode("fff");
+// console.log("code", charCode);
