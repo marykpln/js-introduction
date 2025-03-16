@@ -16,5 +16,13 @@ d.then(function (res) {
 });
 d.resolve("hello");
 
-// let charCode = String.fromCharCode("fff");
-// console.log("code", charCode);
+Function.prototype.myBind = function (thisContext, ...args) {
+  return (...newArg) => this.call(thisContext, ...args, ...newArg);
+};
+
+function sum(a, b) {
+  return a + b;
+}
+
+const sum = sum.myBind(null, 1, 2)();
+console.log(sum);

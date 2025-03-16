@@ -24,6 +24,10 @@ export default class Deferred {
     this.result = arg;
     this.callbacks.forEach((callback) => {
       this.result = callback(this.changer());
+      let res = this.callbacks[0]("hello");
+      console.log(res);
+      res =  this.callbacks [1](res)
+      console.log(res)
     });
     this.callbacks = [];
   }
