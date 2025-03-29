@@ -29,24 +29,15 @@ function getUserData(username) {
   //returns promise in the state resolved if username exists with returning user data
   //otherwise state rejected with apropriate message
 }
-function funStackExample(username) {
-  // const password = getUserPassword(0.8);
-  // try {
-  //   login(password);
-  //   const userData = getUserData(username);
-  //   console.log(userData);
-  // } catch (error) {
-  //   console.log(`error: ${error}`)
-  // }
-  //runs the same functionality as commented out above but with calling of asynchronous functions
-  getUserPassword(0.8)
-    .then((password) => login(password))
-    .then(() => getUserData(username))
-    .then((userData) =>
-      console.log("Data coming from the server are ", userData)
-    )
-    .catch((e) => console.log(e));
+async function funStackExample(username) {
+  try {
+    const password = await getUserPassword(0.5);
+    await login(password);
+    const userData = await getUserData(username);
+    console.log(userData);
+  } catch (error) {
+    console.log(error, username);
+  }
 }
-funStackExample("Vasya");
-console.log("waiting for the data coming from the server");
-funStackExample("Hana");
+funStackExample("Petya");
+console.log("waiting for the data coming from the server...");
